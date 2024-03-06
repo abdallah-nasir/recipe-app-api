@@ -1,3 +1,4 @@
+ALLOWED_HOSTS = ["*"]
 from pathlib import Path
 
 SECRET_KEY = 'django-insecure-e+)641!z*+#^)j7b^*+uuazrgi1ys)p+u10d7)6k!u^f9q-9ea'

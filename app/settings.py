@@ -1,4 +1,5 @@
+from app.base_settings import * # noqa
 DEBUG = True
 
 if DEBUG:
-    from dev_settings import *
+    from app.dev_settings import *  # noqa
