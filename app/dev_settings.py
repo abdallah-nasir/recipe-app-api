@@ -1,6 +1,6 @@
-ALLOWED_HOSTS = ["*"]
 from pathlib import Path
 
+ALLOWED_HOSTS = ["*"]
 SECRET_KEY = 'django-insecure-e+)641!z*+#^)j7b^*+uuazrgi1ys)p+u10d7)6k!u^f9q-9ea'
 BASE_DIR = Path(__file__).resolve().parent.parent
 INSTALLED_APPS = [
