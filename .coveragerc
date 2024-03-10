@@ -1,0 +1,17 @@
+[run]
+branch = True
+source = .
+omit =
+    libs/*
+    */tests/*
+    */migrations/*
+    manage.py
+    venv/*
+
+[report]
+show_missing = True
+skip_covered = False
+
+[html]
+title = Recipe Api - Code Coverage
+directory = media/tests/htmlcov
