@@ -2,6 +2,8 @@ version: "3.10"
 
 services:
     app:
+      container_name: recipe_app_api
+      restart: always
       build:
         context: .
 #        args:
@@ -10,5 +12,12 @@ services:
         - "8001:8001"
       volumes:
         - .:/app
+        - recipe_static_volume:/app/static
       command: >
-        sh -c "python manage.py runserver 0.0.0.0:8001"
+        sh -c "python manage.py migrate --no-input
+              python manage.py collectstatic --no-input
+              python manage.py runserver 0.0.0.0:8001"
+      # add postgres database
+volumes:
+#  recipe_api_postgres_data:
+  recipe_static_volume:
