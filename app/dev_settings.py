@@ -1,10 +1,13 @@
-from pathlib import Path
 import os
+from django.conf import settings
+
+BASE_DIR = getattr(
+    settings,
+    "BASE_DIR",
+)
 
 ALLOWED_HOSTS = ["*"]
 SECRET_KEY = os.getenv("SECRET_KEY")
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
