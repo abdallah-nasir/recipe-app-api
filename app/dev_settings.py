@@ -16,8 +16,10 @@ DATABASES = {
     }
 }
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": lambda request: True,
 }
 MEDIA_URL = os.getenv("MEDIA_URL")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

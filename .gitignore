@@ -58,7 +58,7 @@ target/
 *~
 # media path
 media/
-/static/
+staticfiles/
 .idea/
 
 libs/
