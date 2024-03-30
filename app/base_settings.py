@@ -1,12 +1,14 @@
 # Application definition
+import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 load_dotenv()
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -22,11 +24,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
-    "debug_toolbar",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -97,10 +98,10 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
-    "BLACKLIST_AFTER_ROTATION": False,
-    "UPDATE_LAST_LOGIN": False,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": True,
     "ALGORITHM": "HS256",
-    "SIGNING_KEY": BASE_DIR,
+    "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
     "ISSUER": None,

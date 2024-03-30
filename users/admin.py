@@ -3,4 +3,10 @@ from .models import User
 
 # Register your models here.
 
-admin.site.register(User)
+
+class UserAdmin(admin.ModelAdmin):
+    exclude = ("password",)
+    readonly_fields = ("last_login",)
+
+
+admin.site.register(User, UserAdmin)
